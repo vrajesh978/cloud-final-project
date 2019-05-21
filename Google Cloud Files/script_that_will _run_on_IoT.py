@@ -113,48 +113,8 @@ def main(device_number, tagsList, numImageTag = 50, limit = 250):
             client.publish(_MQTT_TOPIC, payload, qos=1)
             if count % 10 == 0:
                 time.sleep(5)
-        # time.sleep(2)
-        # page=requests.get(instagram_url + tag[1:] + '/')
-        # tree=html.fromstring(page.content)
-        #
-        #
-        # soup = BeautifulSoup(page.content, "lxml")
-        # script_tag = soup.find('script', text=re.compile('window\._sharedData'))
-        # json_data = script_tag.string.partition('=')[-1].strip(' ;')
-        # try:
-        #     json_string = json.loads(json_data)
-        # except NameError as e:
-        #     print('error has occured tag name:', tag)
-        #     print(e)
-        #     continue
-        # except:
-        #     continue
-        #
-        # nodeList = json_string["entry_data"]["TagPage"][0]["graphql"]["hashtag"]["edge_hashtag_to_media"]["edges"]
-        # count = 0
-        # for index, node in enumerate(nodeList):
-        #
-        #     textList = []
-        #     edgesList = node["node"]["edge_media_to_caption"]["edges"]
-        #     for edges in edgesList:
-        #         textList.append(edges["node"]["text"])
-        #
-        #     url = node["node"]["display_url"]
-        #
-        #     if len(textList) > 0:
-        #         hashtagList = [ t for t in textList[0].split() if t.startswith('#') ]
-        #         if len(hashtagList) > 0 :
-        #             data = {"hash-tag": tag, "url": url, "hash-tag-list": hashtagList}
-        #             payload = json.dumps(data)
-        #             # print(payload)
-        #             time.sleep(1)
-        #             client.publish(_MQTT_TOPIC, payload, qos=1)
-        #
-        #             # dataframe.append({"hash-tag": tag, "url": url, "hash-tag-list": hashtagList})
-        #             count += 1
-        #     if count >= limit or count >= numImageTag:
-        #         break
 
+                
     ###################################################################################################################
 
 

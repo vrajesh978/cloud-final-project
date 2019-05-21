@@ -14,9 +14,7 @@ def lambda_handler(event, context):
     dynamodb = boto3.client('dynamodb')
     # table = dynamodb.Tablename("captions")
     
-    s3 = boto3.client('s3',
-                        aws_access_key_id='AKIAYML6HL5K7MKXESCU',
-                        aws_secret_access_key='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')
+    s3 = boto3.client('s3')
     obj = s3.get_object(Bucket = bucketname, Key = itemname)
     
     print("here"  + str(obj) + "done")
