@@ -1,0 +1,84 @@
+<html>
+<head>
+    <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="apigClient.js"></script>
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <!-- bootstrap -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-sm navbar-light bg-dark fixed-top">
+            <a class="navbar-brand" style="color:white" href="#">CAPTION-AI</a>
+        </nav>
+    </header>
+    <main role="main" class="container" id="main-container">
+            <!-- <h1 class="mt-5">Sticky footer with fixed navbar</h1>
+            <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
+            <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p> -->
+        <div class="container" id="main-container">
+            <div class="row">
+                <div class="col-sm-8 image-upload">
+                    <input id="image-upload"
+                    type="file" 
+                    class="filepond"
+                    name="filepond"
+                    data-max-file-size="3MB"
+                    data-max-files="1" />
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="tags-input" placeholder="#hashtags">
+                        <textarea style="margin-top: 5px" class="form-control" rows="3" id="caption-input" name="text" placeholder="Caption"></textarea>
+                        <input type="text" value="" style="width: 0px; height: 0px;" id = "output">
+                    </div>
+                    <button type="submit" class="btn btn-primary float-right" id="share" onclick="onShare(this)">copy</button>
+                </div>
+                <div class="col-sm-4" style="text-align: center">
+                    <h3>Tags</h3>
+                    <div class="tag-predictor" id="tag-predictor">
+                        <button type="button" class="btn btn-secondary btn-sm tag-btn" >#tag1</button>
+                        <button type="button" class="btn btn-secondary btn-sm tag-btn">#tag2</button>
+                        <button type="button" class="btn btn-secondary btn-sm tag-btn">#five</button>
+                        <button type="button" class="btn btn-secondary btn-sm tag-btn">#four</button>
+                    </div>
+                    <h3 style="margin-top: 3px;">Captions</h3>
+                    <ul class="list-unstyled text-small caption-predictor" id="caption-predictor">
+                        <li class="caption">dseiwelnf lfna isefinfeiwefi fineoafieaoij ea oweij.</li>
+                        <li class="caption">dseiwelnf lfna isefinfeiwefi fineoafieaoij ea oweij.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div  class = "popup">
+
+    </div>
+    <!-- <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Thank you.</span>
+        </div>
+    </footer> -->
+    <script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+    <script src="file_input.js"></script>
+    
+</body>
+</html>
